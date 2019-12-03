@@ -1,0 +1,39 @@
+<div class='component-content'>
+    <div class='lefthalf'>
+        <span class='component-title'>{{title}} </span>
+        <span><a routerLink='/users/create'>
+                <img id='createnew' width='20' height='20' src='assets/add-icon.png' title='Add New'></a>
+        </span>
+    </div>
+</div>
+<p *ngIf='!users'>Loading...</p>
+<table *ngIf='users' class="table table-striped">
+    <thead>
+        <tr>
+            <th><a (click)="sortBy('id')">Id</a></th>
+            <th>User Name</th>
+            <th>Name</th>
+            <th>Phone Number</th>
+            <th>Email</th>
+            <th>isReviewer</th>
+            <th>isAdmin</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let u of users | sort:sortCriteria:sortOrder">
+            <td>{{u.id}}</td>
+            <td>{{u.userName}}</td>
+            <td>{{u.lastName+", "+u.firstName}}</td>
+            <td>{{u.phoneNumber}}</td>
+            <td>{{u.email}}</td>
+            <td>{{u.isReviewer}}</td>
+            <td>{{u.isAdmin}}</td>
+            <td><a routerLink='/users/detail/{{u.id}}'><img src='assets/details.png' width='20' height='20'
+                        title='Detail'> </a>
+                |
+                <a routerLink='/users/edit/{{u.id}}'><img src='assets/pencil-icon.png' width='20' height='20'
+                        title='Edit'></a>
+            </td>
+        </tr>
+    </tbody>
+</table>

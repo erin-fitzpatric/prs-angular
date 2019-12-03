@@ -1,0 +1,44 @@
+<div class='component-content'>
+    <div class='lefthalf'>
+        <span class='component-title'>{{title}} </span>
+        <span><a routerLink='/vendors/create'>
+                <img id='createnew' width='20' height='20' src='assets/add-icon.png' title='Add New'></a>
+        </span>
+    </div>
+</div>
+<p *ngIf='!vendors'>Loading...</p>
+<table *ngIf='vendors' class="table table-striped">
+    <thead>
+        <tr>
+            <th><a (click)="sortBy('id')">Id</a></th>
+            <th>Code</th>
+            <th>Name</th>
+            <th>Address</th>
+            <th>City</th>
+            <th>State</th>
+            <th>Zip</th>
+            <th>Phone Number</th>
+            <th>Email</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let v of vendors | sort:sortCriteria:sortOrder">
+            <td>{{v.id}}</td>
+            <td>{{v.code}}</td>
+            <td>{{v.name}}</td>
+            <td>{{v.address}}</td>
+            <td>{{v.city}}</td>
+            <td>{{v.state}}</td>
+            <td>{{v.zip}}</td>
+            <td>{{v.phoneNumber}}</td>
+            <td>{{v.email}}</td>
+            
+            <td><a routerLink='/vendors/detail/{{v.id}}'><img src='assets/details.png' width='20' height='20'
+                        title='Detail'> </a>
+                |
+                <a routerLink='/vendors/edit/{{v.id}}'><img src='assets/pencil-icon.png' width='20' height='20'
+                        title='Edit'></a>
+            </td>
+        </tr>
+    </tbody>
+</table>
