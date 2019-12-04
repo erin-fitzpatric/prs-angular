@@ -2,6 +2,8 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { JsonResponse } from '../model/json-response.class';
+import { Request} from 'src/app/model/request.class';
+
 
 @Injectable({
   providedIn: 'root'

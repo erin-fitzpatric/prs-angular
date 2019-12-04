@@ -15,10 +15,9 @@ export class ProductDetailComponent implements OnInit {
   id: number = 0;
 
   constructor(private productSvc: ProductService,
-              private router: Router,
-              private route: ActivatedRoute,
-              private loc: Location) { }
-
+    private router: Router,
+    private route: ActivatedRoute,
+    private loc: Location) { }
   ngOnInit() {
     // get the id from the url
     this.route.params.subscribe(parms => this.id = parms['id']);
@@ -28,10 +27,10 @@ export class ProductDetailComponent implements OnInit {
     });
   }
   delete() {
-    this.productSvc.delete(this.id).subscribe( jr => {
-      console.log("product delete jr",jr);
+    this.productSvc.delete(this.id).subscribe(jr => {
+      console.log("product delete jr", jr);
       if (jr.errors != null) {
-        console.log("Error deleting prodcuts: "+jr.errors);
+        console.log("Error deleting prodcuts: " + jr.errors);
       }
       this.router.navigateByUrl("products/list");
     });

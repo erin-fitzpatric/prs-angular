@@ -15,8 +15,8 @@ export class ProductCreateComponent implements OnInit {
   product: Product = new Product();
   vendors: Vendor[] = [];
   constructor(private productSvc: ProductService,
-              private vendorSvc: VendorService,
-              private router: Router) { }
+    private vendorSvc: VendorService,
+    private router: Router) { }
   ngOnInit() {
     //populate list of vendors
     this.vendorSvc.list().subscribe(jr => {
@@ -25,7 +25,7 @@ export class ProductCreateComponent implements OnInit {
     });
   }
   save(): void {
-    console.log("attempting to save a product:",this.product);
+    console.log("attempting to save a product:", this.product);
     this.productSvc.save(this.product).subscribe(jr => {
       console.log("saved product...");
       console.log(this.product);
