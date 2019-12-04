@@ -9,12 +9,12 @@ export class Request {
     deliveryMode: string;
     status: string;
     total: number;
-    localDateTime: Date;
+    submittedDate: Date;
     reasonForRejection: string;
 
     constructor(id: number = 0, user: User = new User(), description: string = "", justification: string = "",
         dateNeeded: Date = new Date(), deliveryMode: string = "", status: string = "", total: number = 0,
-        localDateTime: Date = new Date(), reasonForRejection: string = "") {
+        submittedDate: Date = new Date(), reasonForRejection: string = "") {
             this.id = id;
             this.user = user;
             this.description = description;
@@ -23,7 +23,7 @@ export class Request {
             this.deliveryMode = deliveryMode;
             this.status = status;
             this.total = total;
-            this.localDateTime = localDateTime;
+            this.submittedDate = submittedDate;
             this.reasonForRejection = reasonForRejection;
     }
 }

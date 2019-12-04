@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { BaseComponent } from '../../base/base/base.component';
 import { Vendor } from 'src/app/model/vendor.class';
 import { VendorService } from 'src/app/service/vendor.service';
+import { SystemService } from 'src/app/service/system.service';
 
 @Component({
   selector: 'app-vendor-list',
@@ -12,8 +13,9 @@ export class VendorListComponent extends BaseComponent implements OnInit {
   title: string = "Vendor-List";
   vendors: Vendor[] = [];
 
-  constructor(private vendorSvc: VendorService) {
-    super();
+  constructor(private vendorSvc: VendorService,
+              protected sysSvc: SystemService) {
+    super(sysSvc);
   }
 
   ngOnInit() {

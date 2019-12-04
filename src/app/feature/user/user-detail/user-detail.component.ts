@@ -18,7 +18,6 @@ export class UserDetailComponent implements OnInit {
               private router: Router,
               private route: ActivatedRoute,
               private loc: Location) { }
-
   ngOnInit() {
        // get the id from the url
        this.route.params.subscribe(parms => this.id = parms['id']);
@@ -27,11 +26,9 @@ export class UserDetailComponent implements OnInit {
          this.user = jr.data as User;
        });
   }
-
   delete() {
     this.userSvc.delete(this.id).subscribe( jr => {
       console.log("user delete jr",jr);
-      // fix here. 
       if (jr.errors != null) {
         console.log("Error deleting users: "+jr.errors);
       }

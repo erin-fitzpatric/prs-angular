@@ -29,11 +29,11 @@ export class UserEditComponent implements OnInit {
   save(): void {
     this.userSvc.save(this.user).subscribe(jr => {
       console.log("edited user...");
+      console.log(jr);
       console.log(this.user);
       this.router.navigateByUrl("/users/list");
     });
   }
-
   backClicked(){
     this.loc.back();
   }

@@ -1,0 +1,78 @@
+<div class='component-content'>
+    <div class='lefthalf'>
+        <span class='component-title'>{{title}} </span>
+    </div>
+</div>
+<p *ngIf='!vendor'>Loading...</p>
+<div *ngIf='vendor'>
+    <main class="single">
+        <table class="table table-sm">
+            <tr>
+                <td>
+                    Code:
+                </td>
+                <td>
+                    <input [(ngModel)]="vendor.code" class="rounded" type="text">
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    Name:
+                </td>
+                <td>
+                    <input [(ngModel)]="vendor.name" class="rounded" type="text">
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    Address:
+                </td>
+                <td>
+                    <input [(ngModel)]="vendor.address" class="rounded" type="text">
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    City:
+                </td>
+                <td>
+                    <input [(ngModel)]="vendor.city" class="rounded" type="text">
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    State:
+                </td>
+                <td>
+                    <input [(ngModel)]="vendor.state" class="rounded" type="text">
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    Zip Code:
+                </td>
+                <td>
+                    <input [(ngModel)]="vendor.zip" class="rounded" type="text">
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    Phone Number:
+                </td>
+                <td>
+                    <input [(ngModel)]="vendor.phoneNumber" class="rounded" type="text">
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    Email:
+                </td>
+                <td>
+                    <input [(ngModel)]="vendor.email" class="rounded" type="text">
+                </td>
+            </tr>
+        </table>
+    </main>
+    <span><button (click)="save()" class="btn btn-sm btn-primary">Save</button></span> | 
+    <span><button (click)="backClicked()" class="btn btn-sm btn-primary">Back</button></span>
+</div>
