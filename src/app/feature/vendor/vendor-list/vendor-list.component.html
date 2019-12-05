@@ -10,7 +10,6 @@
 <table *ngIf='vendors' class="table table-striped">
     <thead>
         <tr>
-            <th><a (click)="sortBy('id')">Id</a></th>
             <th>Code</th>
             <th>Name</th>
             <th>Address</th>
@@ -23,7 +22,6 @@
     </thead>
     <tbody>
         <tr *ngFor="let v of vendors | sort:sortCriteria:sortOrder">
-            <td>{{v.id}}</td>
             <td>{{v.code}}</td>
             <td>{{v.name}}</td>
             <td>{{v.address}}</td>

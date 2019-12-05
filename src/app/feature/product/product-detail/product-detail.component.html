@@ -7,18 +7,10 @@
         <table class="table table-sm">
             <tr>
                 <td>
-                    Id:
-                </td>
-                <td>
-                    <input [(ngModel)]="product.id" class="rounded" type="number">
-                </td>
-            </tr>
-            <tr>
-                <td>
                     Vendor:
                 </td>
                 <td>
-                    <input [(ngModel)]="product.vendor.name" class="rounded" type="text">
+                    <input [(ngModel)]="product.vendor.name" class="rounded" type="text" disabled>
                 </td>
             </tr>
             <tr>
@@ -26,7 +18,7 @@
                     Part Number:
                 </td>
                 <td>
-                    <input [(ngModel)]="product.partNumber" class="rounded" type="text">
+                    <input [(ngModel)]="product.partNumber" class="rounded" type="text" disabled>
                 </td>
             </tr>
             <tr>
@@ -34,7 +26,7 @@
                     Name:
                 </td>
                 <td>
-                    <input [(ngModel)]="product.name" class="rounded" type="text">
+                    <input [(ngModel)]="product.name" class="rounded" type="text" disabled>
                 </td>
             </tr>
             <tr>
@@ -42,7 +34,7 @@
                     Price:
                 </td>
                 <td>
-                    <input [(ngModel)]="product.price" class="rounded" type="number">
+                    <input [(ngModel)]="product.price" class="rounded" type="number" disabled>
                 </td>
             </tr>
             <tr>
@@ -50,7 +42,7 @@
                     Unit:
                 </td>
                 <td>
-                    <input [(ngModel)]="product.unit" class="rounded" type="text">
+                    <input [(ngModel)]="product.unit" class="rounded" type="text" disabled>
                 </td>
             </tr>
             <tr>
@@ -58,7 +50,7 @@
                     Photo Path:
                 </td>
                 <td>
-                    <input [(ngModel)]="product.photoPath" class="rounded" type="text">
+                    <input [(ngModel)]="product.photoPath" class="rounded" type="text" disabled>
                 </td>
             </tr>
         </table>

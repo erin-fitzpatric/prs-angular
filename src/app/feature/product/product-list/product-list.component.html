@@ -10,9 +10,8 @@
 <table *ngIf='products' class="table table-striped">
     <thead>
         <tr>
-            <th><a (click)="sortBy('id')">Id</a></th>
             <th>Vendor</th>
-            <th>Part Number</th>
+            <th>Part #</th>
             <th>Name</th>
             <th>Price</th>
             <th>Unit</th>
@@ -21,11 +20,10 @@
     </thead>
     <tbody>
         <tr *ngFor="let p of products | sort:sortCriteria:sortOrder">
-            <td>{{p.id}}</td>
             <td>{{p.vendor.name}}</td>
             <td>{{p.partNumber}}</td>
             <td>{{p.name}}</td>
-            <td>{{p.price}}</td>
+            <td>${{p.price}}</td>
             <td>{{p.unit}}</td>
             <td>{{p.photoPath}}</td>
             <td><a routerLink='/products/detail/{{p.id}}'><img src='assets/details.png' width='20' height='20'

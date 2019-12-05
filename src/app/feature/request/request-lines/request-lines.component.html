@@ -1,0 +1,31 @@
+<p *ngIf='!requests'>Loading...</p>
+<table *ngIf='lineItems' class="table table-striped">
+    <thead>
+        <tr>
+            <th>Id</th>
+            <th>Description</th>
+            <th>Status</th>
+            <th>Total</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let l of lineItems | sort:sortCriteria:sortOrder">
+            <td>{{r.id}}</td>
+            <td>{{r.description}}</td>
+            <td>{{r.status}}</td>
+            <td>${{r.total}}</td>
+            <td>
+                <a routerLink='/line-items/edit/{{l.id}}'><img src='assets/pencil-icon.png' width='20' height='20'
+                        title='Edit'></a>
+            </td>
+        </tr>
+    </tbody>
+</table>
+<div class='component-content'>
+    <div class='lefthalf'>
+        <span class='component-title'>{{title}} </span>
+        <span><a routerLink='/line-items/create'>
+                <img id='createnew' width='20' height='20' src='assets/add-icon.png' title='Add New'></a>
+        </span>
+    </div>
+</div>

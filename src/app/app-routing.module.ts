@@ -17,6 +17,9 @@ import { UserLoginComponent } from './feature/user/user-login/user-login.compone
 import { RequestCreateComponent } from './feature/request/request-create/request-create.component';
 import { RequestDetailComponent } from './feature/request/request-detail/request-detail.component';
 import { RequestEditComponent } from './feature/request/request-edit/request-edit.component';
+import { LineItemCreateComponent } from './feature/line-item/line-item-create/line-item-create.component';
+import { LineItemEditComponent } from './feature/line-item/line-item-edit/line-item-edit.component';
+import { RequestLinesComponent } from './feature/request/request-lines/request-lines.component';
 
 const routes: Routes = [
   { path: '', redirectTo: '/', pathMatch: 'full' },
@@ -38,6 +41,9 @@ const routes: Routes = [
   { path: 'requests/create', component: RequestCreateComponent },
   { path: 'requests/detail/:id', component: RequestDetailComponent },
   { path: 'requests/edit/:id', component: RequestEditComponent },
+  { path: 'requests/lines/:id', component: RequestLinesComponent },
+  { path: 'line-items/create', component: LineItemCreateComponent },
+  { path: 'line-items/edit/:id', component: LineItemEditComponent },
   { path: '**', component: UserListComponent },
 ];
 
