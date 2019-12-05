@@ -1,31 +1,62 @@
-<p *ngIf='!requests'>Loading...</p>
-<table *ngIf='lineItems' class="table table-striped">
+<div class='component-content'>
+    <div class='lefthalf'>
+        <span class='component-title'>{{titleOne}} </span>
+        <span> | <a routerLink="/requests/list">Return to list...</a></span>
+    </div>
+</div>
+<p *ngIf='!request'>Loading...</p>
+<table *ngIf='request' class="table table-striped">
     <thead>
         <tr>
-            <th>Id</th>
-            <th>Description</th>
-            <th>Status</th>
-            <th>Total</th>
+            <th>Id:</th>
+            <th>Description:</th>
+            <th>Status:</th>
+            <th>Total:</th>
         </tr>
     </thead>
     <tbody>
-        <tr *ngFor="let l of lineItems | sort:sortCriteria:sortOrder">
-            <td>{{r.id}}</td>
-            <td>{{r.description}}</td>
-            <td>{{r.status}}</td>
-            <td>${{r.total}}</td>
-            <td>
-                <a routerLink='/line-items/edit/{{l.id}}'><img src='assets/pencil-icon.png' width='20' height='20'
-                        title='Edit'></a>
-            </td>
+        <tr>
+            <td>{{request.id}}</td>
+            <td>{{request.description}}</td>
+            <td>{{request.status}}</td>
+            <td>{{request.total | currency}}</td>
         </tr>
     </tbody>
 </table>
 <div class='component-content'>
     <div class='lefthalf'>
-        <span class='component-title'>{{title}} </span>
+        <span class='component-title'>{{titleTwo}} </span>
         <span><a routerLink='/line-items/create'>
                 <img id='createnew' width='20' height='20' src='assets/add-icon.png' title='Add New'></a>
         </span>
     </div>
 </div>
+<table *ngIf='lineItems' class="table table-striped">
+    <thead>
+        <tr>
+            <th>Id:</th>
+            <th>Product:</th>
+            <th>Quantity:</th>
+            <th>Price:</th>
+            <th>Line Total:</th>
+            <th>Action:</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let l of lineItems | sort:sortCriteria:sortOrder">
+            <td>{{l.id}}</td>
+            <td>{{l.product.name}}</td>
+            <td>{{l.quantity}}</td>
+            <td>{{l.product.price | currency}}</td>
+            <td>{{l.quantity * l.product.price | currency}}</td>
+            <td>PLACEHOLDER ACTION</td>
+            <!-- <td><a routerLink='/products/detail/{{p.id}}'><img src='assets/details.png' width='20' height='20'
+                        title='Detail'> </a>
+                |
+                <a routerLink='/products/edit/{{p.id}}'><img src='assets/pencil-icon.png' width='20' height='20'
+                        title='Edit'></a>
+            </td> -->
+
+        </tr>
+    </tbody>
+</table>
