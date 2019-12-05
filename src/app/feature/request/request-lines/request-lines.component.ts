@@ -5,7 +5,7 @@ import { SystemService } from 'src/app/service/system.service';
 import { BaseComponent } from '../../base/base/base.component';
 import { RequestService } from 'src/app/service/request.service';
 import { JsonResponse } from 'src/app/model/json-response.class';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { Request } from 'src/app/model/request.class';
 
 @Component({
@@ -24,7 +24,8 @@ export class RequestLinesComponent extends BaseComponent implements OnInit {
   constructor(private lineItemSvc: LineItemService,
     protected sysSvc: SystemService,
     private requestSvc: RequestService,
-    private route: ActivatedRoute) {
+    private route: ActivatedRoute,
+    private router: Router) {
     super(sysSvc);
   }
   ngOnInit() {
@@ -39,6 +40,15 @@ export class RequestLinesComponent extends BaseComponent implements OnInit {
     this.lineItemSvc.list().subscribe(jr => {
       this.lineItems = jr.data as LineItem[];
       console.log(this.lineItems);
+    })
+  }
+  delete() {
+    this.lineItemSvc.delete(this.id).subscribe(jr => {
+      console.log("line item delete jr", jr);
+      if (jr.errors != null) {
+        console.log("Error deleting line item: " + jr.errors);
+      }
+      this.router.navigateByUrl("/requests/lines/{{r.id}}");
     });
   }
 }

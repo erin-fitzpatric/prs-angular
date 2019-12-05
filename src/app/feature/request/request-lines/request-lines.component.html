@@ -49,13 +49,12 @@
             <td>{{l.quantity}}</td>
             <td>{{l.product.price | currency}}</td>
             <td>{{l.quantity * l.product.price | currency}}</td>
-            <td>PLACEHOLDER ACTION</td>
-            <!-- <td><a routerLink='/products/detail/{{p.id}}'><img src='assets/details.png' width='20' height='20'
-                        title='Detail'> </a>
-                |
-                <a routerLink='/products/edit/{{p.id}}'><img src='assets/pencil-icon.png' width='20' height='20'
+            <td>
+                <a routerLink='/line-items/edit/{{l.id}}'><img src='assets/pencil-icon.png' width='20' height='20'
                         title='Edit'></a>
-            </td> -->
+                | <a (click)="delete()"><img src='assets/delete.jpg' width='20' height='20'
+                    title='delete'></a>
+            </td>
 
         </tr>
     </tbody>
