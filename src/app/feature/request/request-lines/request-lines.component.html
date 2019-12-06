@@ -26,7 +26,7 @@
 <div class='component-content'>
     <div class='lefthalf'>
         <span class='component-title'>{{titleTwo}} </span>
-        <span><a routerLink='/line-items/create'>
+        <span><a routerLink='/line-items/create/{{request.id}}'>
                 <img id='createnew' width='20' height='20' src='assets/add-icon.png' title='Add New'></a>
         </span>
     </div>
@@ -52,10 +52,9 @@
             <td>
                 <a routerLink='/line-items/edit/{{l.id}}'><img src='assets/pencil-icon.png' width='20' height='20'
                         title='Edit'></a>
-                | <a (click)="delete()"><img src='assets/delete.jpg' width='20' height='20'
+                | <a (click)="delete(l.id)"><img src='assets/delete.jpg' width='20' height='20'
                     title='delete'></a>
             </td>
-
         </tr>
     </tbody>
 </table>

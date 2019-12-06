@@ -25,4 +25,7 @@ export class LineItemService {
   delete(id: number): Observable<JsonResponse> {
     return this.http.delete(this.url+id) as Observable<JsonResponse>;
   }
+  listLineItemById(id: number): Observable<JsonResponse> {
+    return this.http.get(this.url + "/lines-for-pr/" + id) as Observable<JsonResponse>
+  }
 }

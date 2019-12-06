@@ -29,7 +29,7 @@
             <td>{{r.dateNeeded}}</td>
             <td>{{r.deliveryMode}}</td>
             <td>{{r.status}}</td>
-            <td>${{r.total}}</td>
+            <td>{{r.total | currency}}</td>
             <td>{{r.submittedDate}}</td>
             <td>{{r.reasonForRejection}}</td>
             <td><a routerLink='/requests/detail/{{r.id}}'><img src='assets/details.png' width='20' height='20'

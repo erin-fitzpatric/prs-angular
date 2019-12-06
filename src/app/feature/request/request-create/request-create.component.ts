@@ -3,8 +3,6 @@ import { Request } from 'src/app/model/request.class';
 import { RequestService } from 'src/app/service/request.service';
 import { Router } from '@angular/router';
 import { SystemService } from 'src/app/service/system.service';
-import { UserService } from 'src/app/service/user.service';
-
 
 @Component({
   selector: 'app-request-create',

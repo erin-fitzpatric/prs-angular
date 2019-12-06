@@ -42,7 +42,7 @@ const routes: Routes = [
   { path: 'requests/detail/:id', component: RequestDetailComponent },
   { path: 'requests/edit/:id', component: RequestEditComponent },
   { path: 'requests/lines/:id', component: RequestLinesComponent },
-  { path: 'line-items/create', component: LineItemCreateComponent },
+  { path: 'line-items/create/:id', component: LineItemCreateComponent },
   { path: 'line-items/edit/:id', component: LineItemEditComponent },
   { path: '**', component: UserListComponent },
 ];

@@ -28,27 +28,24 @@ export class RequestLinesComponent extends BaseComponent implements OnInit {
     private router: Router) {
     super(sysSvc);
   }
+
   ngOnInit() {
     super.ngOnInit();
-    // gets request by id
     this.route.params.subscribe(parms => this.id = parms['id']);
+    this.getLineItem();
+  }
+  getLineItem() {
     this.requestSvc.get(this.id).subscribe(jr => {
       this.request = jr.data as Request;
-    })
-
-    console.log("Calling line item service list...");
-    this.lineItemSvc.list().subscribe(jr => {
+    });
+    this.route.params.subscribe(parms => this.id = parms['id']);
+    this.lineItemSvc.listLineItemById(this.id).subscribe(jr => {
       this.lineItems = jr.data as LineItem[];
-      console.log(this.lineItems);
-    })
+    });
   }
-  delete() {
-    this.lineItemSvc.delete(this.id).subscribe(jr => {
-      console.log("line item delete jr", jr);
-      if (jr.errors != null) {
-        console.log("Error deleting line item: " + jr.errors);
-      }
-      this.router.navigateByUrl("/requests/lines/{{r.id}}");
+  delete(lineId: number) {
+    this.lineItemSvc.delete(lineId).subscribe(jr => {
+      this.getLineItem();
     });
   }
 }
