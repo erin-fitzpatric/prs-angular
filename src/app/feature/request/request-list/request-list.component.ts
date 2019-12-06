@@ -12,7 +12,6 @@ import { SystemService } from 'src/app/service/system.service';
 export class RequestListComponent extends BaseComponent implements OnInit {
   title: string = "Request-List";
   requests: Request[] = [];
-  // TODO add User[] 
   constructor(private requestSvc: RequestService,
     protected sysSvc: SystemService) {
     super(sysSvc);

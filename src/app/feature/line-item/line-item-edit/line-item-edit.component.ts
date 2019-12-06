@@ -46,7 +46,7 @@ export class LineItemEditComponent extends BaseComponent implements OnInit {
     this.lineItemSvc.save(this.lineItem).subscribe(jr => {
       console.log("saved line-item...");
       console.log(this.lineItem);
-      this.router.navigateByUrl("/requests/lines/" + this.id);
+      this.router.navigateByUrl("/requests/lines/" + this.lineItem.request.id);
     })
   }
   compProduct(a: Product, b: Product): boolean {
