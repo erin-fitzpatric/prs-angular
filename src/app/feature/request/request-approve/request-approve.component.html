@@ -1,2 +1,60 @@
 <app-menu></app-menu>
-<p>request-approve works!</p>
+<div class='component-content'>
+    <div class='lefthalf'>
+        <span class='component-title'>{{titleOne}} </span>
+        <span> | <a routerLink="/requests/list">Return to list...</a></span>
+    </div>
+</div>
+<p *ngIf='!request'>Loading...</p>
+<table *ngIf='request' class="table table-striped">
+    <thead>
+        <tr>
+            <th>Id:</th>
+            <th>Description:</th>
+            <th>Status:</th>
+            <th>Total:</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>{{request.id}}</td>
+            <td>{{request.description}}</td>
+            <td>{{request.status}}</td>
+            <td>{{request.total | currency}}</td>
+        </tr>
+    </tbody>
+</table>
+<div class='component-content'>
+    <div class='lefthalf'>
+        <span class='component-title'>{{titleTwo}} </span>
+        <span><a routerLink='/line-items/create/{{request.id}}'>
+                <img id='createnew' width='20' height='20' src='assets/add-icon.png' title='Add New'></a>
+        </span>
+    </div>
+</div>
+<table *ngIf='lineItems' class="table table-striped">
+    <thead>
+        <tr>
+            <th>Id:</th>
+            <th>Product:</th>
+            <th>Quantity:</th>
+            <th>Price:</th>
+            <th>Line Total:</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let l of lineItems | sort:sortCriteria:sortOrder">
+            <td>{{l.id}}</td>
+            <td>{{l.product.name}}</td>
+            <td>{{l.quantity}}</td>
+            <td>{{l.product.price | currency}}</td>
+            <td>{{l.quantity * l.product.price | currency}}</td>
+        </tr>
+    </tbody>
+</table>
+<td><span><button (click)="approve()" class="btn btn-sm btn-primary">Approve</button></span></td>
+<td><input type="text"></td>
+<td><span><button (click)="reject()" class="btn btn-sm btn-primary">Reject</button></span>    </td>
+
+<!-- add into  
+    *ngIf="request.reasonForRejection" -->

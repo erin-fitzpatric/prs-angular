@@ -26,4 +26,10 @@ export class RequestService {
   submitForReview(request: Request): Observable<JsonResponse> {
     return this.http.put(this.url+"submit-review", request) as Observable<JsonResponse>;
   }
+  approve(request: Request): Observable<JsonResponse> {
+    return this.http.put(this.url+"approve", request) as Observable<JsonResponse>;
+  }
+  reject(request: Request): Observable<JsonResponse> {
+    return this.http.put(this.url+"reject", request) as Observable<JsonResponse>;
+  }
 }
