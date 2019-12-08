@@ -20,6 +20,7 @@ export class UserListComponent extends BaseComponent implements OnInit {
 
   ngOnInit() {
     super.ngOnInit();
+    this.sysSvc.checkLogin();
     console.log("Verify we have a logged in user!");
     console.log("User:",this.loggedInUser);
     console.log("Admin?",this.isAdmin);

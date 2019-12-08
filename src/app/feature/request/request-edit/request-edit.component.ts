@@ -5,13 +5,15 @@ import { Router, ActivatedRoute } from '@angular/router';
 import { Location } from '@angular/common';
 import { User } from 'src/app/model/user.class';
 import { UserService } from 'src/app/service/user.service';
+import { BaseComponent } from '../../base/base/base.component';
+import { SystemService } from 'src/app/service/system.service';
 
 @Component({
   selector: 'app-request-edit',
   templateUrl: './request-edit.component.html',
   styleUrls: ['./request-edit.component.css']
 })
-export class RequestEditComponent implements OnInit {
+export class RequestEditComponent extends BaseComponent implements OnInit {
   title: string = "Request Edit";
   request: Request = new Request();
   id: number = 0;
@@ -20,8 +22,13 @@ export class RequestEditComponent implements OnInit {
               private userSvc: UserService,
               private router: Router,
               private route: ActivatedRoute,
-              private loc: Location) { }
+              private loc: Location,
+              protected sysSvc: SystemService) {
+                super(sysSvc);
+               }
   ngOnInit() {
+    super.ngOnInit();
+    this.sysSvc.checkLogin();
     // populate list of users
     this.userSvc.list().subscribe(jr => {
       this.users = jr.data as User[];

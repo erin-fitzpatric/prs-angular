@@ -32,4 +32,7 @@ export class RequestService {
   reject(request: Request): Observable<JsonResponse> {
     return this.http.put(this.url+"reject", request) as Observable<JsonResponse>;
   }
+  requestForReview(id: number): Observable<JsonResponse> {
+    return this.http.get(this.url + 'list-review/' + id) as Observable<JsonResponse>;
+  }
 }

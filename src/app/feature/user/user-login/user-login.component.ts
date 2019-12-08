@@ -27,6 +27,7 @@ export class UserLoginComponent extends BaseComponent implements OnInit {
   }
 
   login() {
+    super.ngOnInit();
     console.log("login called for user:", this.user);
     this.userSvc.login(this.user)
       .subscribe(jr => {

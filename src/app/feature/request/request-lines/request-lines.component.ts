@@ -31,6 +31,7 @@ export class RequestLinesComponent extends BaseComponent implements OnInit {
 
   ngOnInit() {
     super.ngOnInit();
+    this.sysSvc.checkLogin();
     this.route.params.subscribe(parms => this.id = parms['id']);
     this.getLineItem();
   }

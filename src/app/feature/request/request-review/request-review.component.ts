@@ -17,8 +17,9 @@ export class RequestReviewComponent extends BaseComponent implements OnInit {
   }
   ngOnInit() {
     super.ngOnInit();
+    this.sysSvc.checkLogin();
     console.log("Calling request review service list...");
-    this.requestSvc.list().subscribe(jr => {
+    this.requestSvc.requestForReview(this.loggedInUser.id).subscribe(jr => {
       this.requests = jr.data as Request[];
       console.log(this.requests);
     });
