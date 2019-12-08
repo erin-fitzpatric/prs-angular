@@ -20,6 +20,8 @@ export class VendorListComponent extends BaseComponent implements OnInit {
 
   ngOnInit() {
     super.ngOnInit();
+    // verify that the user is logged in
+    this.sysSvc.checkLogin();
     console.log("Calling vendor service list...");
     this.vendorSvc.list().subscribe(jr => {
       this.vendors = jr.data as Vendor[];
