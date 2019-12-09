@@ -27,19 +27,16 @@
 <div class='component-content'>
     <div class='lefthalf'>
         <span class='component-title'>{{titleTwo}} </span>
-        <span><a routerLink='/line-items/create/{{request.id}}'>
-                <img id='createnew' width='20' height='20' src='assets/add-icon.png' title='Add New'></a>
-        </span>
     </div>
 </div>
 <table *ngIf='lineItems' class="table table-striped">
     <thead>
         <tr>
-            <th>Id:</th>
-            <th>Product:</th>
-            <th>Quantity:</th>
-            <th>Price:</th>
-            <th>Line Total:</th>
+            <th>Id</th>
+            <th>Product</th>
+            <th>Quantity</th>
+            <th>Price</th>
+            <th>Line Total</th>
         </tr>
     </thead>
     <tbody>

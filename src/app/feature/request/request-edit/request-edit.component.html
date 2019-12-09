@@ -12,8 +12,13 @@
                 <td>
                     User:
                 </td>
-                <td>
+                <td *ngIf="isAdmin">
                     <select [(ngModel)]="request.user" class="rounded" [compareWith]="compUser">
+                        <option *ngFor='let u of users' [ngValue]='u'>{{u.userName}}</option>
+                    </select>
+                </td>
+                <td *ngIf="!isAdmin">
+                    <select [(ngModel)]="request.user" class="rounded" [compareWith]="compUser" disabled>
                         <option *ngFor='let u of users' [ngValue]='u'>{{u.userName}}</option>
                     </select>
                 </td>
@@ -63,7 +68,7 @@
                     Total
                 </td>
                 <td>
-                    <input [(ngModel)]="request.total" class="rounded" type="text">
+                    <input [(ngModel)]="request.total" class="rounded" type="text" disabled>
                 </td>
             </tr>
             <tr>
@@ -79,7 +84,7 @@
                     Reason For Rejection
                 </td>
                 <td>
-                    <input [(ngModel)]="request.reasonForRejection" class="rounded" type="text">
+                    <input [(ngModel)]="request.reasonForRejection" class="rounded" type="text" disabled>
                 </td>
             </tr>
         </table>

@@ -60,16 +60,27 @@
                 <td>
                     isReviewer
                 </td>
-                <td>
-                    <input [(ngModel)]="user.isReviewer" class="rounded" type="text">
+                <td *ngIf="isAdmin">
+                    <input [(ngModel)]="user.isReviewer" class="rounded" type="radio" value="false" name="isReviewer">
+                    False
+                    <input [(ngModel)]="user.isReviewer" class="rounded" type="radio" value="true" name="isReviewer">
+                    True
+                </td>
+                <td *ngIf="!isAdmin">
+                    <input [(ngModel)]="user.isReviewer" class="rounded" type="text" disabled>
+
                 </td>
             </tr>
             <tr>
                 <td>
                     isAdmin
                 </td>
-                <td>
-                    <input [(ngModel)]="user.isAdmin" class="rounded" type="text">
+                <td *ngIf="isAdmin">
+                    <input [(ngModel)]="user.isAdmin" class="rounded" type="radio" value="false" name="isAdmin"> False
+                    <input [(ngModel)]="user.isAdmin" class="rounded" type="radio" value="true" name="isAdmin"> True
+                </td>
+                <td *ngIf="!isAdmin">
+                    <input [(ngModel)]="user.isAdmin" class="rounded" type="text" disabled>
                 </td>
             </tr>
         </table>

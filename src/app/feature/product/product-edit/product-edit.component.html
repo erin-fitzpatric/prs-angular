@@ -13,7 +13,9 @@
                     Vendor:
                 </td>
                 <td>
-                    <input [(ngModel)]="product.vendor.name" class="rounded" type="text">
+                    <select [(ngModel)]="product.vendor" class="rounded" type="text" [compareWith]="compVendor">
+                        <option *ngFor='let v of vendors' [ngValue]='v'>{{v.name}}</option>
+                    </select>
                 </td>
             </tr>
             <tr>

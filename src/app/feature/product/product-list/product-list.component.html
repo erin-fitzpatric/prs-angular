@@ -2,7 +2,7 @@
 <div class='component-content'>
     <div class='lefthalf'>
         <span class='component-title'>{{title}} </span>
-        <span><a routerLink='/products/create'>
+        <span><a routerLink='/products/create' *ngIf="isAdmin">
                 <img id='createnew' width='20' height='20' src='assets/add-icon.png' title='Add New'></a>
         </span>
     </div>
@@ -17,6 +17,7 @@
             <th>Price</th>
             <th>Unit</th>
             <th>Photo Path</th>
+            <th>Action</th>
         </tr>
     </thead>
     <tbody>
@@ -29,9 +30,9 @@
             <td>{{p.photoPath}}</td>
             <td><a routerLink='/products/detail/{{p.id}}'><img src='assets/details.png' width='20' height='20'
                         title='Detail'> </a>
-                |
-                <a routerLink='/products/edit/{{p.id}}'><img src='assets/pencil-icon.png' width='20' height='20'
-                        title='Edit'></a>
+                &nbsp;
+                <a routerLink='/products/edit/{{p.id}}' *ngIf="isAdmin==true"><img src='assets/pencil-icon.png'
+                        width='20' height='20' title='Edit'></a>
             </td>
         </tr>
     </tbody>

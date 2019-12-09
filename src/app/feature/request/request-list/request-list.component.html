@@ -2,7 +2,7 @@
 <div class='component-content'>
     <div class='lefthalf'>
         <span class='component-title'>{{title}} </span>
-        <span><a routerLink='/requests/create'>
+        <span><a routerLink='/requests/create' *ngIf="!isReviewer">
                 <img id='createnew' width='20' height='20' src='assets/add-icon.png' title='Add New'></a>
         </span>
     </div>
@@ -20,6 +20,7 @@
             <th>Total</th>
             <th>Submitted Date</th>
             <th>Reason for Rejection</th>
+            <th>Action</th>
         </tr>
     </thead>
     <tbody>
@@ -35,13 +36,15 @@
             <td>{{r.reasonForRejection}}</td>
             <td><a routerLink='/requests/detail/{{r.id}}'><img src='assets/details.png' width='20' height='20'
                         title='Detail'></a>
-                |
+                &nbsp;
                 <a routerLink='/requests/edit/{{r.id}}'><img src='assets/pencil-icon.png' width='20' height='20'
-                        title='Edit'></a>
-                |
+                        title='Edit' *ngIf="isAdmin|| loggedInUser.id==r.user.id"></a>
+                &nbsp;
                 <a routerLink='/requests/lines/{{r.id}}'><img src='assets/lines.png' width='20' height='20'
-                        title='Lines'></a>
+                        title='Lines' *ngIf="isAdmin|| loggedInUser.id==r.user.id"></a>
             </td>
         </tr>
     </tbody>
 </table>
+<!-- this line is not working -->
+<!-- && loggedInUser.status!=='Review' -->

@@ -57,7 +57,7 @@
         </table>
     </main>
     <span>
-        <span><a routerLink="/products/edit/{{product.id}}" class="btn btn-sm btn-warning">Edit</a></span>
-        <span> | <button (click)="delete()" class="btn btn-sm btn-danger">Delete</button></span>
+        <span><a routerLink="/products/edit/{{product.id}}" class="btn btn-sm btn-warning" *ngIf="isAdmin==true">Edit</a></span>
+        <span> | <button (click)="delete()" class="btn btn-sm btn-danger" *ngIf="isAdmin==true">Delete</button></span>
     </span>
 </div>
