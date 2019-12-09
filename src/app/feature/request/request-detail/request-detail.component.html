@@ -76,6 +76,6 @@
         <span><a routerLink="/requests/edit/{{request.id}}" class="btn btn-sm btn-warning"
                 *ngIf="isAdmin==true">Edit</a></span>
         <span> &nbsp; <button (click)="delete()" class="btn btn-sm btn-danger"
-                *ngIf="isAdmin || request.user.id==loggedInUser.id">Delete</button></span>
+                *ngIf="(request.status!=='Approved')&&(isAdmin|| loggedInUser.id==request.user.id)">Delete</button></span>
     </span>
 </div>

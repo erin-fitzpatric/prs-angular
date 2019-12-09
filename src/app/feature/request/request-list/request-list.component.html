@@ -38,7 +38,7 @@
                         title='Detail'></a>
                 &nbsp;
                 <a routerLink='/requests/edit/{{r.id}}'><img src='assets/pencil-icon.png' width='20' height='20'
-                        title='Edit' *ngIf="isAdmin|| loggedInUser.id==r.user.id"></a>
+                        title='Edit' *ngIf="(r.status!=='Approved')&&(isAdmin|| loggedInUser.id==r.user.id)"></a>
                 &nbsp;
                 <a routerLink='/requests/lines/{{r.id}}'><img src='assets/lines.png' width='20' height='20'
                         title='Lines' *ngIf="isAdmin|| loggedInUser.id==r.user.id"></a>
@@ -46,5 +46,3 @@
         </tr>
     </tbody>
 </table>
-<!-- this line is not working -->
-<!-- && loggedInUser.status!=='Review' -->

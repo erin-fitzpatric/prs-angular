@@ -5,12 +5,12 @@
     </div>
 </div>
 <p *ngIf='!user'>Loading...</p>
-<form *ngIf='user'>
+<div *ngIf='user'>
     <main class="single">
         <table class="table table-sm">
             <tr>
                 <td>
-                    Username
+                    Username:
                 </td>
                 <td>
                     <input [(ngModel)]="user.userName" class="rounded" type="text" maxlength="20" required>
@@ -50,7 +50,7 @@
             </tr>
             <tr>
                 <td>
-                    Email
+                    Email:
                 </td>
                 <td>
                     <input [(ngModel)]="user.email" class="rounded" type="text" maxlength="75" required>
@@ -58,7 +58,7 @@
             </tr>
             <tr>
                 <td>
-                    isReviewer
+                    isReviewer:
                 </td>
                 <td>
                     <input [(ngModel)]="user.isReviewer" class="rounded" type="radio" value="false" name="isReviewer" required> False
@@ -67,7 +67,7 @@
             </tr>
             <tr>
                 <td>
-                    isAdmin
+                    isAdmin:
                 </td>
                 <td>
                     <input [(ngModel)]="user.isAdmin" class="rounded" type="radio" value="false" name="isAdmin" required> False
@@ -77,4 +77,4 @@
         </table>
     </main>
     <span><button (click)="save()" class="btn btn-sm btn-primary">Save</button></span>
-</form>
+</div>
